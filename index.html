@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démineur</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 12px;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+
+        h1 {
+            margin: 4px 0 8px;
+        }
+
+        #commandes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        #commandes button {
+            padding: 8px 14px;
+            border: 1px solid #374151;
+            border-radius: 6px;
+            background: white;
+            cursor: pointer;
+        }
+
+        #commandes button:hover {
+            background: #e5e7eb;
+        }
+
+        #outils {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin: 8px 0;
+        }
+
+        .outil {
+            width: 58px;
+            height: 58px;
+            padding: 4px;
+            border: 4px solid transparent;
+            border-radius: 8px;
+            background: white;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+
+        .outil.selectionne {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px #93c5fd;
+        }
+
+        #outil-pelle {
+            background-image: url("images/shovel.jpg");
+        }
+
+        #outil-drapeau {
+            background-image: url("images/flag.jpg");
+        }
+
+        #status {
+            min-height: 20px;
+            margin: 6px 0;
+            font-weight: bold;
+        }
+
+        #grille {
+            display: grid;
+            gap: 2px;
+            justify-content: center;
+            margin: 4px auto;
+            max-width: 96vw;
+            max-height: 66vh;
+            overflow: hidden;
+        }
+
+        .case {
+            padding: 0;
+            border: 1px solid #1f2937;
+            background-color: #7aa35a;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Jeu du démineur</h1>
+
+        <div id="commandes">
+            <label for="taille-board">Taille du plateau :</label>
+            <input id="taille-board" type="number" min="2" max="30" value="10">
+            <span id="valeur-taille">10</span>
+            <button id="nouvelle-partie" type="button">Nouvelle partie</button>
+            <button id="reinitialiser" type="button">Réinitialiser</button>
+        </div>
+
+        <div id="outils" aria-label="Outil sélectionné">
+            <button id="outil-pelle" class="outil selectionne" type="button"
+                aria-label="Sélectionner la pelle" title="Retourner une case"></button>
+            <button id="outil-drapeau" class="outil" type="button"
+                aria-label="Sélectionner le drapeau" title="Placer un drapeau"></button>
+            <button id="aide" type="button">Aide</button>
+        </div>
+
+        <p id="status" aria-live="polite"></p>
+        <div id="grille" aria-label="Plateau de démineur"></div>
+    </main>
+
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <script src="minesweeper.js"></script>
+</body>
+</html>
